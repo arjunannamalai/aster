@@ -8,13 +8,13 @@ class Post {
     Post({
         required this.userId,
         required this.id,
-        required this.title,
+         this.title,
          this.body,
     });
 
     int userId;
     int id;
-    String title;
+    String? title;
     String? body;
 
     factory Post.fromJson(Map<String, dynamic> json) => Post(

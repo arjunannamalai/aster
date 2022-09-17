@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last
 
-import 'dart:ffi';
-
 import 'package:aster/post.dart';
 import 'package:aster/service.dart';
 import 'package:flutter/material.dart';
@@ -36,18 +34,43 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Visibility(
-      visible: isLoading,
-      child: ListView.builder(
-          itemCount: posts?.length,
-          itemBuilder: (context, index) {
-            return Container(
-              child: Text(posts![index].title),
-            );
-          }),
-      replacement: const Center(
-        child: CircularProgressIndicator(),
-      ),
-    ));
+        appBar: AppBar(
+            centerTitle: false,
+            backgroundColor: Colors.white,
+            elevation: 0,
+            title: Text(
+              "Aster",
+              style: TextStyle(fontSize: 28, color: Colors.blue),
+            )),
+        body: SafeArea(
+          bottom: false,
+          child: Visibility(
+            visible: isLoading,
+            child: ListView.builder(
+                itemCount: posts?.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                      ),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(posts![index].userId.toString()),
+                            Text(posts![index].id.toString()),
+                            Text(posts![index].title.toString()),
+                            Text(posts![index].body.toString()),
+                          ]),
+                    ),
+                  );
+                }),
+            replacement: const Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
+        ));
   }
 }
+//Text(posts![index].title.toString())
