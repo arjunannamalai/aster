@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Body: " + posts![index].body.toString(),
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.w400),
+                                    fontSize: 14 , fontWeight: FontWeight.w400),
                               ),
                             ]),
                       ),
